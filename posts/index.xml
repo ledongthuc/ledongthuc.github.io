@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Posts on Le Dong Thuc</title>
+    <link>https://thuc.space/posts/</link>
+    <description>Recent content in Posts on Le Dong Thuc</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 23 Jul 2018 00:06:58 +0700</lastBuildDate>
+    
+        <atom:link href="https://thuc.space/posts/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Hello</title>
+      <link>https://thuc.space/posts/hello/</link>
+      <pubDate>Mon, 23 Jul 2018 00:06:58 +0700</pubDate>
+      
+      <guid>https://thuc.space/posts/hello/</guid>
+      <description>&lt;p&gt;Hello&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>
