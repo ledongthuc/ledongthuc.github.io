@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Series on Thuc&#39;s blog</title>
+    <link>https://thuc.space/series/</link>
+    <description>Recent content in Series on Thuc&#39;s blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 02 Jan 2020 19:31:04 +0100</lastBuildDate>
+    
+	<atom:link href="https://thuc.space/series/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Hello</title>
+      <link>https://thuc.space/series/hello/</link>
+      <pubDate>Thu, 02 Jan 2020 19:31:04 +0100</pubDate>
+      
+      <guid>https://thuc.space/series/hello/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Hello story</title>
+      <link>https://thuc.space/series/hello-story/</link>
+      <pubDate>Thu, 02 Jan 2020 19:31:04 +0100</pubDate>
+      
+      <guid>https://thuc.space/series/hello-story/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>
