@@ -1,5 +1,5 @@
 body {
-  margin: 20px 0px 0px 20px;
+  margin: 20px;
   font-family: 'Zilla Slab', serif;;
   color: #121212;
   background-color: #F2F2F2;
@@ -35,4 +35,8 @@ a {
 
 .tags .tag {
   margin: 0px 1px;
+}
+
+.content {
+  text-align: center;
 }
