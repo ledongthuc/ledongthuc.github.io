@@ -1,14 +1,51 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Tags on Le Dong Thuc</title>
+    <title>Tags on Thuc&#39;s blog</title>
     <link>https://thuc.space/tags/</link>
-    <description>Recent content in Tags on Le Dong Thuc</description>
+    <description>Recent content in Tags on Thuc&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
+    <lastBuildDate>Thu, 02 Jan 2020 19:31:04 +0100</lastBuildDate>
     
-        <atom:link href="https://thuc.space/tags/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://thuc.space/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Blogging</title>
+      <link>https://thuc.space/tags/blogging/</link>
+      <pubDate>Thu, 02 Jan 2020 19:31:04 +0100</pubDate>
+      
+      <guid>https://thuc.space/tags/blogging/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Development</title>
+      <link>https://thuc.space/tags/development/</link>
+      <pubDate>Thu, 02 Jan 2020 19:31:04 +0100</pubDate>
+      
+      <guid>https://thuc.space/tags/development/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>fast</title>
+      <link>https://thuc.space/tags/fast/</link>
+      <pubDate>Thu, 02 Jan 2020 19:31:04 +0100</pubDate>
+      
+      <guid>https://thuc.space/tags/fast/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Go</title>
+      <link>https://thuc.space/tags/go/</link>
+      <pubDate>Thu, 02 Jan 2020 19:31:04 +0100</pubDate>
+      
+      <guid>https://thuc.space/tags/go/</guid>
+      <description></description>
+    </item>
     
   </channel>
 </rss>

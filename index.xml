@@ -1,24 +1,50 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Le Dong Thuc</title>
+    <title>Thuc&#39;s blog</title>
     <link>https://thuc.space/</link>
-    <description>Recent content on Le Dong Thuc</description>
+    <description>Recent content on Thuc&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 23 Jul 2018 00:06:58 +0700</lastBuildDate>
+    <lastBuildDate>Thu, 02 Jan 2020 19:31:04 +0100</lastBuildDate>
     
-        <atom:link href="https://thuc.space/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://thuc.space/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>about me</title>
+      <link>https://thuc.space/about-me/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://thuc.space/about-me/</guid>
+      <description>A software engineer, a hundsband and a father.</description>
+    </item>
     
     <item>
       <title>Hello</title>
       <link>https://thuc.space/posts/hello/</link>
-      <pubDate>Mon, 23 Jul 2018 00:06:58 +0700</pubDate>
+      <pubDate>Thu, 02 Jan 2020 19:31:04 +0100</pubDate>
       
       <guid>https://thuc.space/posts/hello/</guid>
-      <description>&lt;p&gt;Hello&lt;/p&gt;
-</description>
+      <description>Something about myself</description>
+    </item>
+    
+    <item>
+      <title>Hello 2</title>
+      <link>https://thuc.space/posts/hello2/</link>
+      <pubDate>Thu, 02 Jan 2020 19:31:04 +0100</pubDate>
+      
+      <guid>https://thuc.space/posts/hello2/</guid>
+      <description>Something about myself</description>
+    </item>
+    
+    <item>
+      <title>Hello 3</title>
+      <link>https://thuc.space/posts/hello3/</link>
+      <pubDate>Thu, 02 Jan 2020 19:31:04 +0100</pubDate>
+      
+      <guid>https://thuc.space/posts/hello3/</guid>
+      <description>Something about myself</description>
     </item>
     
   </channel>
