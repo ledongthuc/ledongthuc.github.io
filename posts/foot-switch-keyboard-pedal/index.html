@@ -36,7 +36,6 @@
         <h2 id="foot-switch-keyboard-pedal">Foot switch keyboard pedal</h2>
 <p>It&rsquo;s a pedal that&rsquo;s used as keyboard to control your PC/Mac.</p>
 <p>In this post, I will use <a href="https://www.olympus.co.uk/site/en/a/audio_accessories/accessories_professional_dictation/hand_foot_controls/rs28h_footswitch/index.html">Olympus Foot Switch RS28H</a></p>
-<p><img src="/images/foot-switch-keyboard-pedal/olympus_foot_switch_rs29h.jpg" alt="Olympus Foot Switch RS28H"></p>
 <h3 id="olympus-foot-switch-rs28h">Olympus Foot Switch RS28H</h3>
 <p>Two main reasons I choose it because:</p>
 <ul>
@@ -45,6 +44,42 @@
 <li>Can setup pedals to shortcuts</li>
 </ul>
 <h2 id="how-can-setup-it">How can setup it</h2>
+<h3 id="strategy">Strategy</h3>
+<ul>
+<li>I setup Olympus Foot Switch RS28H pedal to map with a keyword, e.g. Ctrl+Shift+B</li>
+<li>I setup vim/sublime or any application accept keyword Ctrl+Shift+B to a function</li>
+<li>I setup vim/sublime or any application to write snipet code if Ctrl+Shift+B</li>
+</ul>
+<pre><code>                                    ┌─────────┐
+                                    │ VIM     │
+┌────────┐                          │         │
+│        │                          ├──────┐  │
+│ Pedal  │────Ctrl + Shift + B────&gt; │Action│  │
+│        │                          ├──────┘  │
+└────────┘                          │         │
+                                    │         │
+                                    └─────────┘
+
+                                    ┌─────────┐
+                                    │ Sublime │
+ ┌────────┐                         │         │
+ │ Pedal  │                         ├──────┐  │
+ │        │──Ctrl + Shift + B─────&gt; │Action│  │
+ │        │                         ├──────┘  │
+ └────────┘                         │         │
+                                    │         │
+                                    └─────────┘
+</code></pre><h3 id="step-1-install-foot-switch-configuration-tool">Step 1: Install Foot Switch Configuration Tool</h3>
+<p>The Foot Switch Configuration Tool is management tool that allows you manage your pedal or configuration it.</p>
+<p>In time I write this note, it&rsquo;s v100 Windows and v101 MacOS, you can download it from following links:</p>
+<ul>
+<li><a href="https://dl-support.olympus-imaging.com/odms_download/ftsw_configuration_tool/en/">Download</a></li>
+<li><a href="/files/foot-switch-keyboard-pedal/FTSW_tool_win_V100.zip">Backup Windows</a></li>
+<li><a href="/files/foot-switch-keyboard-pedal/FTSW_tool_mac_V101.zip">Backup MacOS</a></li>
+</ul>
+<h3 id="step-2-setup-keywords-for-pedals">Step 2: Setup keywords for pedals</h3>
+<p>Plug Olympus Foot Switch RS28H to your machine, open FTSW toll, that you download and install in step 1</p>
+<p><img src="/images/foot-switch-keyboard-pedal/ftsw.png" alt="FTSW tool"></p>
 <h2 id="whats-it-can-help-you">What&rsquo;s it can help you</h2>
 
       </div>
