@@ -38,41 +38,5 @@
       <description></description>
     </item>
     
-    <item>
-      <title>Blogging</title>
-      <link>https://thuc.space/tags/blogging/</link>
-      <pubDate>Thu, 02 Jan 2020 19:31:04 +0100</pubDate>
-      
-      <guid>https://thuc.space/tags/blogging/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Development</title>
-      <link>https://thuc.space/tags/development/</link>
-      <pubDate>Thu, 02 Jan 2020 19:31:04 +0100</pubDate>
-      
-      <guid>https://thuc.space/tags/development/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>fast</title>
-      <link>https://thuc.space/tags/fast/</link>
-      <pubDate>Thu, 02 Jan 2020 19:31:04 +0100</pubDate>
-      
-      <guid>https://thuc.space/tags/fast/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Go</title>
-      <link>https://thuc.space/tags/go/</link>
-      <pubDate>Thu, 02 Jan 2020 19:31:04 +0100</pubDate>
-      
-      <guid>https://thuc.space/tags/go/</guid>
-      <description></description>
-    </item>
-    
   </channel>
 </rss>

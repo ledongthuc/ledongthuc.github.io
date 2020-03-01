@@ -20,23 +20,5 @@
       <description></description>
     </item>
     
-    <item>
-      <title>Hello</title>
-      <link>https://thuc.space/series/hello/</link>
-      <pubDate>Thu, 02 Jan 2020 19:31:04 +0100</pubDate>
-      
-      <guid>https://thuc.space/series/hello/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Hello story</title>
-      <link>https://thuc.space/series/hello-story/</link>
-      <pubDate>Thu, 02 Jan 2020 19:31:04 +0100</pubDate>
-      
-      <guid>https://thuc.space/series/hello-story/</guid>
-      <description></description>
-    </item>
-    
   </channel>
 </rss>
