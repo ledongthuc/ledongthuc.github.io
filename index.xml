@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Thuc&#39;s blog</title>
+    <title>Thuc&#39;s notes</title>
     <link>https://thuc.space/</link>
-    <description>Recent content on Thuc&#39;s blog</description>
+    <description>Recent content on Thuc&#39;s notes</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Sat, 22 Feb 2020 21:00:00 +0100</lastBuildDate>
@@ -17,7 +17,12 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://thuc.space/about-me/</guid>
-      <description>A software engineer, a husband and a father.</description>
+      <description>A software engineer, a husband and a father.
+This&amp;rsquo; space I store all notes. In case something here&amp;rsquo;s usedful with you, feel free to read.
+Personal space, so no tracking, no comments and no ads.
+Feel free to contact me through ledongthuc [a] gmail.com if any feedbacks
+Linkedin: https://www.linkedin.com/in/ledongthuc/
+Github: https://github.com/ledongthuc/</description>
     </item>
     
     <item>
