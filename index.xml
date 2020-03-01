@@ -6,7 +6,7 @@
     <description>Recent content on Thuc&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 02 Jan 2020 19:31:04 +0100</lastBuildDate>
+    <lastBuildDate>Sat, 22 Feb 2020 21:00:00 +0100</lastBuildDate>
     
 	<atom:link href="https://thuc.space/index.xml" rel="self" type="application/rss+xml" />
     
@@ -18,6 +18,15 @@
       
       <guid>https://thuc.space/about-me/</guid>
       <description>A software engineer, a husband and a father.</description>
+    </item>
+    
+    <item>
+      <title>Setup foot switch keyboard pedal</title>
+      <link>https://thuc.space/posts/foot-switch-keyboard-pedal/</link>
+      <pubDate>Sat, 22 Feb 2020 21:00:00 +0100</pubDate>
+      
+      <guid>https://thuc.space/posts/foot-switch-keyboard-pedal/</guid>
+      <description>Note to setup foot switch keyboard pedal</description>
     </item>
     
     <item>

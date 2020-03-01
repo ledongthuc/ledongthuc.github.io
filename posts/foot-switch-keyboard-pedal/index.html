@@ -33,43 +33,17 @@
       Part of series <a class="series" href="/series/tools">tools</a> | 
       <time>2020-02-22</time>
       <div class="content">
-        <h2 id="foot-switch-keyboard-pedal">Foot switch keyboard pedal</h2>
-<p>It&rsquo;s a pedal that&rsquo;s used as keyboard to control your PC/Mac.</p>
-<p>In this post, I will use <a href="https://www.olympus.co.uk/site/en/a/audio_accessories/accessories_professional_dictation/hand_foot_controls/rs28h_footswitch/index.html">Olympus Foot Switch RS28H</a></p>
-<h3 id="olympus-foot-switch-rs28h">Olympus Foot Switch RS28H</h3>
-<p>Two main reasons I choose it because:</p>
+        <p>It&rsquo;s a pedal that&rsquo;s used as keyboard to control PC/Mac.</p>
+<p>Pedal model is used in this post <a href="https://www.olympus.co.uk/site/en/a/audio_accessories/accessories_professional_dictation/hand_foot_controls/rs28h_footswitch/index.html">Olympus Foot Switch RS28H</a></p>
+<h1 id="olympus-foot-switch-rs28h">Olympus Foot Switch RS28H</h1>
+<p>Why choose this model:</p>
 <ul>
 <li>Easy to buy from Sweden</li>
 <li>Support MacOS officially</li>
-<li>Can setup pedals to shortcuts</li>
+<li>Easy to setup switch with custom key or shortcuts</li>
 </ul>
-<h2 id="how-can-setup-it">How can setup it</h2>
-<h3 id="strategy">Strategy</h3>
-<ul>
-<li>I setup Olympus Foot Switch RS28H pedal to map with a keyword, e.g. Ctrl+Shift+B</li>
-<li>I setup vim/sublime or any application accept keyword Ctrl+Shift+B to a function</li>
-<li>I setup vim/sublime or any application to write snipet code if Ctrl+Shift+B</li>
-</ul>
-<pre><code>                                    ┌─────────┐
-                                    │ VIM     │
-┌────────┐                          │         │
-│        │                          ├──────┐  │
-│ Pedal  │────Ctrl + Shift + B────&gt; │Action│  │
-│        │                          ├──────┘  │
-└────────┘                          │         │
-                                    │         │
-                                    └─────────┘
-
-                                    ┌─────────┐
-                                    │ Sublime │
- ┌────────┐                         │         │
- │ Pedal  │                         ├──────┐  │
- │        │──Ctrl + Shift + B─────&gt; │Action│  │
- │        │                         ├──────┘  │
- └────────┘                         │         │
-                                    │         │
-                                    └─────────┘
-</code></pre><h3 id="step-1-install-foot-switch-configuration-tool">Step 1: Install Foot Switch Configuration Tool</h3>
+<h1 id="how-can-setup-it">How can setup it</h1>
+<h2 id="install-foot-switch-configuration-tool">Install Foot Switch Configuration Tool</h2>
 <p>The Foot Switch Configuration Tool is management tool that allows you manage your pedal or configuration it.</p>
 <p>In time I write this note, it&rsquo;s v100 Windows and v101 MacOS, you can download it from following links:</p>
 <ul>
@@ -77,10 +51,153 @@
 <li><a href="/files/foot-switch-keyboard-pedal/FTSW_tool_win_V100.zip">Backup Windows</a></li>
 <li><a href="/files/foot-switch-keyboard-pedal/FTSW_tool_mac_V101.zip">Backup MacOS</a></li>
 </ul>
-<h3 id="step-2-setup-keywords-for-pedals">Step 2: Setup keywords for pedals</h3>
-<p>Plug Olympus Foot Switch RS28H to your machine, open FTSW toll, that you download and install in step 1</p>
+<p>Plug Olympus Foot Switch RS28H to your machine, open FTSW tool, setup</p>
 <p><img src="/images/foot-switch-keyboard-pedal/ftsw.png" alt="FTSW tool"></p>
-<h2 id="whats-it-can-help-you">What&rsquo;s it can help you</h2>
+<ol>
+<li>Pedal model</li>
+<li>Product serial</li>
+<li>Setting&rsquo;s tab and test pedal</li>
+<li>Setting&rsquo;s template</li>
+<li>Configure pedal&rsquo;s swich with keys and food&rsquo;s behaviour</li>
+<li>Save and apply it to pedal</li>
+</ol>
+<h2 id="direct-mapping">Direct mapping</h2>
+<p>Map pedal to direct key or shortcut keys.</p>
+<pre><code>                                   ┌─────────────────────┐
+                                   │ Browser/Document    │
+┌────────┐                         │                     │
+│        │                         │         ▲           │
+│ Pedal  │────Page Up/Down────────&gt;│         │           │
+│        │                         │         │           │
+└────────┘                         │         ▼           │
+                                   │                     │
+                                   └─────────────────────┘
+                                   ┌─────────────────────┐
+                                   │     Document        │
+┌────────┐                         │                     │
+│        │                         │  ████████████████   │
+│ Pedal  │──────Ctrl + A──────────&gt;│  ███Select All███   │
+│        │                         │  ████████████████   │
+└────────┘                         │                     │
+                                   │                     │
+                                   └─────────────────────┘
+</code></pre><p><img src="/images/foot-switch-keyboard-pedal/ftsw_direct_mapping.png" alt="FTSW settup"></p>
+<h2 id="map-to-editors-action">Map to editor&rsquo;s action</h2>
+<p>Map pedal to a shortcut. The editor maps the shortcut to editor&rsquo; action.</p>
+<pre><code>                                    ┌───────────────────────────────┐
+                                    │ VIM                           │
+                                    │                               │
+                                    │                               │
+                                    │                               │
+┌────────┐                          ├────────────────────┐          │
+│        │                          │     Converter      │          │
+│ Pedal  │────Ctrl + Shift + B─────&gt;│ Shortcut -&gt; Action │          │
+│        │                          │                    │          │
+└────────┘                          ├────────────────────┘          │
+                                    │          │                    │
+                                    │          └─────┐              │
+                                    │                V              │
+                                    │     ┌────────────────────┐    │
+                                    │     │     Save file      │    │
+                                    │     └────────────────────┘    │
+                                    │                               │
+                                    │                               │
+                                    │                               │
+                                    └───────────────────────────────┘
+</code></pre><p><img src="/images/foot-switch-keyboard-pedal/ftsw_snippet.png" alt="FTSW settup action"></p>
+<h3 id="vim">VIM</h3>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:2;-o-tab-size:2;tab-size:2">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#fff;-moz-tab-size:2;-o-tab-size:2;tab-size:2"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="background-color:#fff;-moz-tab-size:2;-o-tab-size:2;tab-size:2"><code class="language-YAML" data-lang="YAML">&#34;<span style="color:#bbb"> </span>~/.vimrc<span style="color:#bbb">
+</span><span style="color:#bbb">
+</span><span style="color:#bbb"></span>map<span style="color:#bbb"> </span>&lt;C-S-b&gt;<span style="color:#bbb"> </span>:w&lt;CR&gt;&lt;Esc&gt;<span style="color:#bbb">
+</span></code></pre></td></tr></table>
+</div>
+</div><h3 id="sublime">Sublime</h3>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:2;-o-tab-size:2;tab-size:2">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#fff;-moz-tab-size:2;-o-tab-size:2;tab-size:2"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="background-color:#fff;-moz-tab-size:2;-o-tab-size:2;tab-size:2"><code class="language-YAML" data-lang="YAML">[<span style="color:#bbb">
+</span><span style="color:#bbb">	</span>{<span style="color:#000;font-weight:bold">&#34;keys&#34;: [&#34;ctrl+shift+b&#34;], &#34;command&#34;: &#34;insert_snippet&#34;, &#34;args&#34;: {&#34;contents&#34;: </span><span style="color:#d14">&#34;\nif err != nil {\n\n}&#34;</span>}}<span style="color:#bbb">
+</span><span style="color:#bbb"></span>]<span style="color:#bbb">
+</span></code></pre></td></tr></table>
+</div>
+</div><p><img src="/images/foot-switch-keyboard-pedal/sublime_command.png" alt="FTSW settup snippet"></p>
+<h2 id="map-to-code-snippet">Map to code snippet</h2>
+<p>Map pedal to shortcut. The editor maps shortcut to plugin.</p>
+<pre><code>                                    ┌───────────────────────────────┐
+                                    │ VIM                           │
+                                    │                               │
+                                    │                               │
+                                    │                               │
+┌────────┐                          ├────────────────────┐          │
+│        │                          │     Converter      │          │
+│ Pedal  │────Ctrl + Shift + B─────&gt;│Shortcut -&gt; Snippet │          │
+│        │                          │                    │          │
+└────────┘                          ├────────────────────┘          │
+                                    │          │                    │
+                                    │          └─────┐              │
+                                    │                V              │
+                                    │     ┌────────────────────┐    │
+                                    │     │fmt.Println('Hello')│    │
+                                    │     └────────────────────┘    │
+                                    │                               │
+                                    │                               │
+                                    │                               │
+                                    └───────────────────────────────┘
+</code></pre><p><img src="/images/foot-switch-keyboard-pedal/ftsw_snippet.png" alt="FTSW settup snippet"></p>
+<h3 id="vim-1">VIM</h3>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:2;-o-tab-size:2;tab-size:2">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#fff;-moz-tab-size:2;-o-tab-size:2;tab-size:2"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="background-color:#fff;-moz-tab-size:2;-o-tab-size:2;tab-size:2"><code class="language-YAML" data-lang="YAML">&#34;<span style="color:#bbb"> </span>~/.vimrc<span style="color:#bbb">
+</span><span style="color:#bbb">
+</span><span style="color:#bbb"></span>command!<span style="color:#bbb"> </span>GolangErrorSnippet<span style="color:#bbb"> </span>call<span style="color:#bbb"> </span>Ignore()<span style="color:#bbb">
+</span><span style="color:#bbb"></span>function!<span style="color:#bbb"> </span>Ignore()<span style="color:#bbb">
+</span><span style="color:#bbb">   </span>normal!<span style="color:#bbb"> </span>o<span style="color:#bbb">
+</span><span style="color:#bbb">   </span>normal!<span style="color:#bbb"> </span>iif<span style="color:#bbb"> </span>err<span style="color:#bbb"> </span>!=<span style="color:#bbb"> </span>nil<span style="color:#bbb"> </span>{<span style="color:#bbb">
+</span><span style="color:#bbb">   </span>normal!<span style="color:#bbb"> </span>o<span style="color:#bbb">	</span>abc<span style="color:#bbb">
+</span><span style="color:#bbb">   </span>normal!<span style="color:#bbb"> </span>o}<span style="color:#bbb">
+</span><span style="color:#bbb"></span>endfunction<span style="color:#bbb">
+</span><span style="color:#bbb">
+</span><span style="color:#bbb"></span>map<span style="color:#bbb"> </span>&lt;C-S-b&gt;<span style="color:#bbb"> </span>:GolangErrorSnippet&lt;CR&gt;&lt;Esc&gt;<span style="color:#bbb">
+</span></code></pre></td></tr></table>
+</div>
+</div><h3 id="sublime-1">Sublime</h3>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:2;-o-tab-size:2;tab-size:2">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#fff;-moz-tab-size:2;-o-tab-size:2;tab-size:2"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="background-color:#fff;-moz-tab-size:2;-o-tab-size:2;tab-size:2"><code class="language-YAML" data-lang="YAML">[<span style="color:#bbb">
+</span><span style="color:#bbb">	</span>{<span style="color:#000;font-weight:bold">&#34;keys&#34;: [&#34;ctrl+shift+b&#34;], &#34;command&#34;: &#34;insert_snippet&#34;, &#34;args&#34;: {&#34;contents&#34;: </span><span style="color:#d14">&#34;\nif err != nil {\n\n}&#34;</span>}}<span style="color:#bbb">
+</span><span style="color:#bbb"></span>]<span style="color:#bbb">
+</span></code></pre></td></tr></table>
+</div>
+</div><p><img src="/images/foot-switch-keyboard-pedal/sublime_snippet.png" alt="FTSW settup snippet"></p>
 
       </div>
       
