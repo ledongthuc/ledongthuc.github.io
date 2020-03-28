@@ -6,7 +6,7 @@
     <description>Recent content on Thuc&#39;s notes</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 22 Feb 2020 21:00:00 +0100</lastBuildDate>
+    <lastBuildDate>Sat, 28 Mar 2020 21:00:00 +0100</lastBuildDate>
     
 	<atom:link href="https://thuc.space/index.xml" rel="self" type="application/rss+xml" />
     
@@ -23,6 +23,15 @@ Personal space, so no tracking, no comments and no ads.
 Feel free to contact me through ledongthuc [a] gmail.com if any feedbacks
 Linkedin: https://www.linkedin.com/in/ledongthuc/
 Github: https://github.com/ledongthuc/</description>
+    </item>
+    
+    <item>
+      <title>Bond</title>
+      <link>https://thuc.space/posts/bond/</link>
+      <pubDate>Sat, 28 Mar 2020 21:00:00 +0100</pubDate>
+      
+      <guid>https://thuc.space/posts/bond/</guid>
+      <description>Notes about bonds</description>
     </item>
     
     <item>
