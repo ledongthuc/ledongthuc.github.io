@@ -1,0 +1,13 @@
+{{ define "main" }}
+  <h1>{{ .Data.Singular | title }} '{{ .Name }}'</h1>
+  <div class="main">
+    {{ $paginator := .Paginate (where .Data.Pages "Type" "in" .Site.Params.mainSections) }}
+    {{ range $paginator.Pages }}
+      <div class="article">
+        <div class="title"><a href="{{ .Permalink }}">{{ .Title }}</a></div>
+        <div class="subtitle">{{ .Summary }}</div>
+      </div>
+    {{ end }}
+    {{ partial "pagination.html" . }}
+  </div>
+{{ end }}

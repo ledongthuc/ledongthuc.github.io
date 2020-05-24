@@ -1,0 +1,10 @@
+{{ define "main" }}
+  <h1>{{ .Name | title }}</h1>
+  <div class="main">
+    {{ range .Data.Terms }}
+      <div class="article">
+        <div class="title"><a class="tag" href="{{ .Page.Permalink }}">{{ .Page.Title }}</a></div>
+      </div>
+    {{ end }}
+  </div>
+{{ end }}

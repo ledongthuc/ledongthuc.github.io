@@ -1,0 +1,42 @@
+baseURL = "https://thuc.space"
+languageCode = "en-us"
+title = "Thuc notes"
+[taxonomies]
+  category = "categories"
+  series = "series"
+  tag = "tags"
+[menu]
+  [[menu.main]]
+    identifier = "/"
+    name = "home"
+    url = "/"
+    weight = 1
+  [[menu.main]]
+    identifier = "series"
+    name = "series"
+    url = "/series/"
+    weight = 2
+  [[menu.main]]
+    identifier = "tldr"
+    name = "tldr"
+    url = "/tldr/"
+    weight = 3
+  [[menu.main]]
+    identifier = "tags"
+    name = "tags"
+    url = "/tags/"
+    weight = 4
+[markup]
+  [markup.highlight]
+    codeFences = true
+    guessSyntax = false
+    hl_Lines = ""
+    lineNoStart = 1
+    lineNos = true
+    lineNumbersInTable = true
+    noClasses = true
+    style = "github"
+    tabWidth = 2
+[params]
+  description = "Place I put all notes, research some stuffs."
+  socialImage = "/images/social.png"

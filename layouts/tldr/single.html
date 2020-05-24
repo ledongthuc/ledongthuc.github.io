@@ -1,0 +1,12 @@
+{{ define "main" }}
+  <div class="content main">
+    <h1>{{ .Title | title }}</h1>
+    <div class="article">
+      <div class="original">
+        <div class="author">Author: {{ .Params.Author }}</div>
+        <div class="source">Source: <a href="{{ .Params.Source }}" target="_blank">{{ .Params.Source }}</a></div>
+      </div>
+      <div class="content">{{ .Content }}</div>
+    </div>
+  </div>
+{{ end }}

@@ -1,0 +1,16 @@
+{{ define "main" }}
+  <h1>{{ .Data.Singular | title }} '{{ .Name }}'</h1>
+  <div class="main">
+    {{ $items := where .Site.Pages "Params.categories" "tldr" }}
+    {{ range $items }}
+      <div class="article">
+        <h2 class="title">{{ .Title }}</h2>
+        <div class="original">
+          <div class="author">Author: {{ .Params.Author }}</div>
+          <div class="source">Source: <a href="{{ .Params.Source }}" target="_blank">{{ .Params.Source }}</a></div>
+        </div>
+        <div class="content">{{ .Content }}</div>
+      </div>
+    {{ end }}
+  </div>
+{{ end }}

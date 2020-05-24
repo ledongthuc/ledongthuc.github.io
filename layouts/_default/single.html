@@ -1,0 +1,17 @@
+{{ define "main" }}
+  <h1>{{ .Title | title }}</h1>
+  <div class="main">
+    <div class="article">
+      {{ with .Params.series }}Part of series <a class="series" href="{{ "/series/" | relLangURL }}{{ . | urlize }}">{{ . }}</a> | {{ end }}
+      <time>{{ with .Date }}{{ .Format "2006-01-02" }}{{ end }}</time>
+      <div class="content">
+        {{ .Content }}
+      </div>
+      {{ with .Params.tags }}
+      <div class="tags">
+        Tags: {{ range . }}<a class="tag" href="{{ "/tags/" | relLangURL }}{{ . | urlize }}">{{ . }}</a> | {{ end }}
+      </div>
+      {{ end }}
+    </div>
+  </div>
+{{ end }}

@@ -1,0 +1,11 @@
+{{ define "main" }}
+  <div class="main">
+    {{ $items := where .Site.Pages "Params.categories" "notes" }}
+    {{ range $items }}
+      <div class="article">
+        <div class="title"><a href="{{ .Permalink }}">{{ .Title }}</a></div>
+        <div class="subtitle">{{ .Summary }}</div>
+      </div>
+    {{ end }}
+  </div>
+{{ end }}

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="{{ .Site.LanguageCode | default "en-us" }}">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>{{ .Title }}</title>
+    {{ with .Site.Params.description }}<meta name="description" content="{{ . }}">{{ end }}
+    {{ with .Site.Params.author }}<meta name="author" content="{{ . }}">{{ end }}
+    <link href="https://fonts.googleapis.com/css?family=Fira+Sans|Roboto|Zilla+Slab&display=swap" rel="stylesheet"> 
+    <link rel="stylesheet" href="{{ "css/style.css" | relURL }}?{{ .Site.LastChange.Unix }}">
+    {{ with .OutputFormats.Get "RSS" -}}
+      {{ printf `<link rel="%s" type="%s" href="%s" title="%s">` .Rel .MediaType.Type .RelPermalink $.Site.Title | safeHTML }}
+    {{- end }}
+    <!-- Social Tags -->
+    <meta property="og:title" content="{{ if .Title }}{{ .Site.Title }} - {{ .Title }}{{ else }}{{ .Site.Title }}{{ end }}">
+    <meta property="og:description" content="{{ if .Summary }}{{ .Summary }}{{ else }}{{ .Site.Params.Description }}{{ end }}">
+    <meta property="og:image" content="{{ if .Params.SocialImage }}{{ .Params.SocialImage }}{{ else }}{{ .Site.Params.SocialImage }}{{ end }}">
+    <meta property="og:image:type" content="image/png">
+    <meta property="og:type" content="website" />
+  </head>
+  <body>
+    {{ partial "header" . }}
+    {{ block "main" . }}{{ end }}
+  </body>
+</html>
