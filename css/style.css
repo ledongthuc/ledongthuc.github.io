@@ -40,3 +40,7 @@ a {
 .content {
   text-align: left;
 }
+
+.subtitle.italic {
+  font-style: italic;
+}
