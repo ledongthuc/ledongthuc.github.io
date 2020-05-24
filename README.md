@@ -1,5 +1,7 @@
 # Thuc's Notes website
 
+![Deploy github page](https://github.com/ledongthuc/ledongthuc.github.io/workflows/Deploy%20github%20page/badge.svg)
+
 ## Notes
 
  - Source in `source` branch
