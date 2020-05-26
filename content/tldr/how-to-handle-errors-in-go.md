@@ -5,7 +5,7 @@ summary: "Handle error in Golang with five rules to make it efficiently."
 date: 2020-04-23T08:00:00+01:00
 source: https://web3.coach/golang-how-to-handle-errors-five-rules
 author: web3.coach
-draft: false
+draft: true
 ---
 
 Handle error in Golang's always annoying. Author of the post give five rules to make it efficiently.
