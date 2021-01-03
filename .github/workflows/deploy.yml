@@ -9,12 +9,11 @@ jobs:
   build-deploy:
     runs-on: ubuntu-18.04
     steps:
-    - uses: actions/checkout@master
-
+    - uses: actions/checkout@v2
     - name: Setup Hugo
-      uses: peaceiris/actions-hugo@v2.2.0
+      uses: peaceiris/actions-hugo@v2
       with:
-        hugo-version: '0.68.3'
+        hugo-version: '0.79.1'
 
     - name: Build
       run: hugo --gc --minify --cleanDestinationDir
