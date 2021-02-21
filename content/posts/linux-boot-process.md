@@ -9,6 +9,7 @@ tags:
 - linux
 - firmware
 - boot
+---
 
 General steps:
  - Power on
