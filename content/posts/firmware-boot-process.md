@@ -9,7 +9,6 @@ tags:
 - linux
 - firmware
 - boot
----
 
 General Steps:
  - Click the power button on
@@ -37,7 +36,7 @@ UEFI firmware
  - UEFI, or user let UEFI knows which boot loader is used. Not dependent on disk and MBR.
  - Boot loader of UEFI is stored in the EFI system partition of the hard drive GPT partition type.
 
-Readmore:
+Read more:
  - https://www.happyassassin.net/posts/2014/01/25/uefi-boot-how-does-that-actually-work-then/
  - https://uefi.org/sites/default/files/resources/2_4_Errata_A.pdf
  - https://wiki.osdev.org/UEFI
