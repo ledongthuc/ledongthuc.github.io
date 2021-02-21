@@ -3,7 +3,7 @@ title: "Linux boot process"
 series: "linux"
 categories: "notes"
 summary: "Quick notes about Linux boot process"
-date: 2021-02-19T21:00:00+01:00
+date: 2021-02-21T21:00:00+01:00
 draft: false
 tags:
 - linux
