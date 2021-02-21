@@ -9,6 +9,7 @@ tags:
 - linux
 - firmware
 - boot
+---
 
 General Steps:
  - Click the power button on
