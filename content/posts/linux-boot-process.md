@@ -30,8 +30,7 @@ Kernel load
  - initrd loads a temporary root file system into memory until real file system is mounted
  - Start load kernel and real file system
  - Mount real root file system
- - Execute /sbin/init as 1st program
- - Start systemd or SysV init
+ - Execute /sbin/init as 1st program, can be systemd or SysV init
 
 Run level
  - Mount file system.
