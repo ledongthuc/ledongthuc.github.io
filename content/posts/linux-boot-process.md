@@ -31,8 +31,10 @@ Kernel load
  - Start load kernel and real file system
  - Mount real root file system
  - Execute /sbin/init as 1st program
+ - Start systemd or SysV init
 
 Run level
+ - Mount file system.
  - Decide what run-level will be run.
  - Run scripts from /etc/rc[0-6S].d directory bases on run-level.
   - /etc/rc[0-6S].d/S.... : is run when starting
