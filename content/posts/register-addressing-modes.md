@@ -1,5 +1,5 @@
 ---
-title: "CPU Register"
+title: "CPU Register addressing modes"
 series: "computer architect"
 categories: "notes"
 summary: "CPU register addressing modes"
