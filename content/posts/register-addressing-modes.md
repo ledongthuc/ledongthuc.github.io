@@ -3,7 +3,7 @@ title: "CPU Register addressing modes"
 series: "computer architect"
 categories: "notes"
 summary: "CPU register addressing modes"
-date: 2021-03-11T21:33:00+01:00
+date: 2021-03-14T19:30:00+01:00
 draft: false
 tags:
 - cpu
