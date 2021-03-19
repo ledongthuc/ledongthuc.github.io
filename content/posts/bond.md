@@ -42,7 +42,8 @@ tags:
  - Convexity: Convexity demonstrates how the duration of a bond changes as the interest rate changes. Portfolio managers will use convexity as a risk-management tool to measure and manage the portfolio's exposure to interest rate risk.
  - Pricing bonds: market price of the bond
  - Yield to maturity: is the total return anticipated on a bond if the bond is held until the end of its lifetime.
- - Denomination: acceptable payment options in trades
+ - Current yield: coupon per bond's price current year.
+ - Denomination: acceptable payment options in trades.
 
 # How to buy:
 
