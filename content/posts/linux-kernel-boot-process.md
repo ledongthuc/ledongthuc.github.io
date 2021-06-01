@@ -15,7 +15,7 @@ tags:
  	- Real-mode kernel: Below 640K of memory
  	- Proctected-mode kernel: Start from 1MB of memory
 
-Real-mode kernel:
+## Real-mode kernel:
 
  - http://lxr.linux.no/#linux+v2.6.25.6/arch/x86/boot/header.S#L110
  	- Real-mode kernel will be start by BIOS at `_start:`
@@ -47,7 +47,7 @@ Real-mode kernel:
  	- Setup GDT https://en.wikipedia.org/wiki/Global_Descriptor_Table
  	- Jump to `protected_mode_jump:`
 
-Protected-mode:
+## Protected-mode:
 
  - http://lxr.linux.no/#linux+v2.6.25.6/arch/x86/boot/pmjump.S#L31
  	- `go_to_protected_mode()` calls `protected_mode_jump:`
