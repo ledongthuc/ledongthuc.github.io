@@ -84,7 +84,7 @@ Protected-mode:
  	- Create scheduling
  	- Sleep by call `cpu_idle()`
 
- - lxr.linux.no/linux+v2.6.25.6/init/main.c#L808
+ - http://lxr.linux.no/linux+v2.6.25.6/init/main.c#L808
  	- `start_kernel()` create thread and call to `kernel_init()`
  	- Set PID = 1
  	- Init the remaining CPUs
