@@ -2,7 +2,7 @@
 title: "Linux kernel boot process"
 series: "linux"
 categories: "notes"
-summary: "Quick notes about Linux's kernel boot process"
+summary: "Linux's kernel boot process step by step"
 date: 2021-06-01T21:00:00+01:00
 draft: false
 tags:
