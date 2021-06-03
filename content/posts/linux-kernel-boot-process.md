@@ -42,7 +42,7 @@ tags:
  	- The method purpose is used to prepare steps before switch to protected mode
  	- Switch hook
  	- Move compressed kernel to correct place
- 	- Enable co-processors
+ 	- Resejt co-processors
  	- Setup IDT https://en.wikipedia.org/wiki/Interrupt_descriptor_table
  	- Setup GDT https://en.wikipedia.org/wiki/Global_Descriptor_Table
  	- Jump to `protected_mode_jump:`
