@@ -1,6 +1,6 @@
 ---
 title: "Linux boot process"
-series: "linux"
+series: "osdev"
 categories: "notes"
 summary: "Quick notes about Linux boot process"
 date: 2021-02-21T21:00:00+01:00
