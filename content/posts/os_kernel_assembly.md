@@ -22,12 +22,12 @@ tags:
      - Transfer to the high-level kernel by calling to function written by C, C++, Go, Rust etc.
      - Keep the computer in an infinite loop.
 
-# Multiboot standard layout
+# 1. Multiboot standard layout
 
  - An interface standard that's used by the bootloader to recognize and load the system kernel.
  - Bootloader will search multiboot headers (magic numbers) to recognize the kernel as multiboot compatible.
 
-## Header layout
+## 1.1. Header layout
 
 ![multiboot header](/images/os_kernel_assembly/os_kernel_assembly.png)
 
@@ -46,7 +46,7 @@ tags:
 | 40 | unsigned 32-bit | height |
 | 44 | unsigned 32-bit | depth |
 
-### Header magic fields
+### 1.1.1. Header magic fields
 
  - Include: magic number, flags and checksum
 
@@ -67,11 +67,11 @@ tags:
 | 2 | If it's set, information about video mode table must be available in multiboot information structure, the boot loader passes that to OS, must be included |
 | 16 | If it's set, header address fields are used by boot loader instead of the fields in the actual executable header. Don't need to provide if the kernel image is in ELF format, required if it's a.out format or in some other format |
 
-** checksum:**
+**checksum:**
 
  - Value's always `-(magic number + flags)`
 
-### Header address fields
+### 1.1.2. Header address fields
 
  - All of the address fields enabled by flag bit 16 are physical addresses.
  - Include: header_addr, load_addr, load_end_addr, bss_end_addr and entry_addr
@@ -81,7 +81,7 @@ tags:
  - bss_end_addr: the physical address of the end of the BSS segment.
  - entry_addr: the physical address to jump to start OS from the boot loader.
 
-### Header graphics fields
+### 1.1.3. Header graphics fields
  
  - All of the graphics fields are enabled by flag bit 2.
  - Include: mode_type, width, height and depth
@@ -92,18 +92,18 @@ tags:
  - height: The number of the lines
  - depth: The number of bits per pixel in a graphics mode, zero in a text mode.
 
-## Stack definition
+## 1.2. Stack definition
 
  - Create a section; allocate 16 Kb; create a symbol at the top by setting the esp register. The stack grows downwards on x86.
  - Aligned 16-byte according to the System V ABI standard and de-facto extensions
 
-## Infinite loop
+## 1.3. Infinite loop
 
  - Disable CLI interrupts
  - Use `hlt` to wait for the next interrupt to archive.
  - Jump back to the waiting step for `hlt` again if the computer wakes up by any interrupting.
 
-## Multiboot information structure
+## 1.4. Multiboot information structure
 
  - Multiboot information structure is data that the boot loader communicates to the OS.
  - The EBX register contains the physical address of the multiboot information structure.
@@ -241,16 +241,16 @@ tags:
  - All fields starts with `framebuffer_`
  - Indicate fields of [framebuffer table](https://en.wikipedia.org/wiki/Framebuffer).
 
-# Multiboot2 standard layout
+# 2. Multiboot2 standard layout
 
  - TBD.
 
-## Header
+## 2.1. Header
 
  - Magic number: 0xE85250D6
 
 
-# References
+# 3. References
  
  - https://wiki.osdev.org/Bare_Bones
  - https://wiki.osdev.org/Multiboot
