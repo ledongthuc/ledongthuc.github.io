@@ -12,11 +12,11 @@ tags:
 
 # What are microservices?
 
-Microservices are architectural style. They are small services that are independent and work together to build the system.
+Microservices are architectural style to design a system. They are small services that are independent and work together to build the system.
 
 # Why small service?
 
-Big code-base easily creates complexity, and abstraction and depends on  different logic.
+Big service, or monolithic system design easily creates complexity, and abstraction and depends on  different logic.
 
 Microservices recommend service should be small, simple and solve one thing well. It's the same idea as the single responsibility principle.
 
