@@ -3,7 +3,7 @@ title: "Microservice, good service with loose coupling and high cohesion"
 series: "microservices"
 categories: "notes"
 summary: "How to design a good service in a microservices with loose coupling and high cohesion"
-date: 2022-04-24T21:00:00+01:00
+date: 2022-05-06T21:00:00+01:00
 draft: false
 socialImage: "https://thuc.space/images/microservices/microservices-good-service.png"
 tags:
