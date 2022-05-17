@@ -16,7 +16,7 @@ tags:
 
 With the development of microservices, software as a service and cloud nowadays, network communication between components or services is the most important part of software development. But more network communications, we faced more network problems while developing the system.
 
-Retry is one of the solutions to handle these problems. If system got an fails action, system can do it again. There is the main idea of any retry strategy.
+Retry is one of the solutions to handle these problems. If the system got fails action, the system can do it again. There is the main idea of any retry strategy.
 
 Let's take a look at common retry strategies and their benefits when applying them.
 
@@ -46,17 +46,17 @@ duration(t) = <constant value>
 
 ![Constant backoff](https://thuc.space/images/retry_strategies/retry_strategies-constant_backoff.png)
 
-The constant backoff retry gives callee time to breathe and recover if it failed. It provides more chances for the retry successful in next time. The constant backoff works well in most situations when many concurrent retry action is small and the failed problem is fixed in a short time.
+The constant backoff retry gives callee time to breathe and recover if it failed. It provides more chances for the retry successful next time. The constant backoff works well in most situations when many concurrent retry action is small and the failed problem is fixed in a short time.
 
-When the number of retry action is matter, especially network problem with many callers; or the system takes a long time to recover; the fixed waiting duration of constant backoff retry doesn't give best result. The stress is accumulated and makes the system longer to recover.
+When the number of retry actions matters, especially network problems with many callers; or the system takes a long time to recover; the fixed waiting duration of constant backoff retry doesn't give the best result. The stress is accumulated and makes the system longer to recover.
 
-A term is if the system can't recover after (x) duration, then it doesn't have any proof about the system is back after the same (x) duration. So it should increase next waiting time when we have more chances for recevering system.
+A term is if the system can't recover after (x) duration, then it doesn't have any proof about the system is back after the same (x) duration. So it should increase the next waiting time when we have more chances for recovering the system.
 
 To handle it, they suggest the next solution.
 
 ## Linear Backoff
 
-The linear backoff retry strategy supports the waiting duration after the first failure and increate the waiting duration of the next retries. It increases constantly delta x from the previous waiting time with the formula:
+The linear backoff retry strategy supports the waiting duration after the first failure and increases the waiting duration of the next retries. It increases constantly delta x from the previous waiting time with the formula:
 
 ```
 duration(t) = duration(t-1) + x
@@ -86,7 +86,7 @@ The quadratic backoff retry strategy supports the waiting duration that calculat
 duration(t) = attempt ^ 2 * base-time
 ```
 
-In the quadratic backoff retry strategy, we define the base-time duration, such as 1s or 100ms.
+In the quadratic backoff retry strategy, we define the base-time duration, such as 1s or 100ms. The attempt is time we do retry.
 
 ![Quadratic backoff](https://thuc.space/images/retry_strategies/retry_strategies-quadratic_backoff.png)
 
@@ -98,9 +98,9 @@ The exponential backoff retry strategy supports the waiting duration that calcul
 duration(t) = 2 ^ attempt * base-time
 ```
 
-In the exponential backoff retry strategy, we define the base-time duration, such as 1s or 100ms.
+In the exponential backoff retry strategy, we define the base-time duration, such as 1s or 100ms. The attempt is time we do retry.
 
-![Quadratic backoff](https://thuc.space/images/retry_strategies/retry_strategies-exponential_backoff.png)
+![Exponential backoff](https://thuc.space/images/retry_strategies/retry_strategies-exponential_backoff.png)
 
 ## Polynomial Backoff
 
@@ -110,17 +110,17 @@ The Polynomial backoff retry strategy supports the waiting duration that calcula
 duration(t) = attempt ^ degree * base-time
 ```
 
-![Quadratic backoff](https://thuc.space/images/retry_strategies/retry_strategies-polynomial_backoff.png)
+![Polynomial backoff](https://thuc.space/images/retry_strategies/retry_strategies-polynomial_backoff.png)
 
-In the Polynomial backoff retry strategy, we define the degree and base-time duration, such as 1s or 100ms. With polynomial backoff, we can define degree number input, so quadratics is a special case of polynomial backoff with the fixed degree is 2.
+In the Polynomial backoff retry strategy, we define the degree and base-time duration, such as 1s or 100ms. With polynomial backoff, we can define degree number input, so quadratics is a special case of polynomial backoff with the fixed degree is 2. The attempt is time we do retry.
 
 ## Jitter
 
-Suppose we have multiple callers do an action or send requests that collide and fail. They all decide to retry with a backoff strategy. They will all retry at the same time, which leads to colliding again.
+Suppose we have multiple retry callers do an action or send requests that collide and fail. They all decide to retry with a backoff strategy. They will all retry at the same time, which leads to colliding again.
 
 Jitter is a technique to solve that problem. It adds or removes different random waiting durations to back off time. So each next retry will happen at a different time and help to avoid several calls next time.
 
-![Quadratic backoff](https://thuc.space/images/retry_strategies/retry_strategies-jitter.png)
+![Jitter backoff](https://thuc.space/images/retry_strategies/retry_strategies-jitter.png)
 
 # External references:
 
