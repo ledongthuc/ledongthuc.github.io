@@ -40,6 +40,9 @@ a {
 .content {
   text-align: left;
 }
+.content img {
+  max-width: 100%;
+}
 
 .subtitle.italic {
   font-style: italic;
