@@ -14,9 +14,11 @@ tags:
 
 # Retry Strategies
 
-With the development of microservices, software as a service and cloud nowadays, network communication is the most important part of software development. It creates more network problems while developing the system.
+With the development of microservices, software as a service and cloud nowadays, network communication between components or services is the most important part of software development. But more network communications, we faced more network problems while developing the system.
 
-Retry is one of the solutions to handle network problems. But how we retry is the next question. Let's take a look at common retry strategies and their benefits when applying them.
+Retry is one of the solutions to handle these problems. If system got an fails action, system can do it again. There is the main idea of any retry strategy.
+
+Let's take a look at common retry strategies and their benefits when applying them.
 
 ![backoff strategies](https://thuc.space/images/retry_strategies/social.png)
 
@@ -36,7 +38,7 @@ The no backoff retry should be used in special cases where you are aware of what
 
 ## Constant Backoff
 
-The most common way to implement the retry strategy. Constant backoff adds a fixed waiting duration after the first failure and between retry actions.
+The most common way to implement the retry strategy. Constant backoff retry adds a fixed waiting duration after the first failure and between retry actions.
 
 ```
 duration(t) = <constant value>
@@ -44,15 +46,17 @@ duration(t) = <constant value>
 
 ![Constant backoff](https://thuc.space/images/retry_strategies/retry_strategies-constant_backoff.png)
 
-The constant backoff gives callee time to breathe and recover if it failed. The constant backoff works well in most situations when many concurrent retry action is small and the failed problem is fixed in a short time.
+The constant backoff retry gives callee time to breathe and recover if it failed. It provides more chances for the retry successful in next time. The constant backoff works well in most situations when many concurrent retry action is small and the failed problem is fixed in a short time.
 
-When the number of retry action is matter, especially network problem with many callers; or the system takes a long time to recover; fixed duration keep the service system taking resource to handle orders. The stress is accumulated and makes the system longer to recover. A term is if the system can't recover after (x) duration, then it doesn't have any proof about the system is back after the same (x) duration.
+When the number of retry action is matter, especially network problem with many callers; or the system takes a long time to recover; the fixed waiting duration of constant backoff retry doesn't give best result. The stress is accumulated and makes the system longer to recover.
+
+A term is if the system can't recover after (x) duration, then it doesn't have any proof about the system is back after the same (x) duration. So it should increase next waiting time when we have more chances for recevering system.
 
 To handle it, they suggest the next solution.
 
 ## Linear Backoff
 
-The linear backoff retry strategy supports the waiting duration after the first failure and between retry actions are different. It increases constantly with the previous waiting time with the formula:
+The linear backoff retry strategy supports the waiting duration after the first failure and increate the waiting duration of the next retries. It increases constantly delta x from the previous waiting time with the formula:
 
 ```
 duration(t) = duration(t-1) + x
@@ -60,7 +64,7 @@ duration(t) = duration(t-1) + x
 
 ![Linear backoff](https://thuc.space/images/retry_strategies/retry_strategies-linear_backoff.png)
 
-In the linear backoff retry strategy, we define fixed increment step (x) and first waiting duration(0).
+In the linear backoff retry strategy, we define constantly delta x and first waiting duration(0).
 
 ## Fibonacci Backoff
 
