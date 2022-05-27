@@ -1,5 +1,5 @@
 ---
-title: "Microservices - Advantages and Disadvantages"
+title: "Microservices - advantages and disadvantages"
 series: "microservices"
 categories: "notes"
 summary: "Listing why we choose or do not choose microservices based on advantages and disadvantages"
