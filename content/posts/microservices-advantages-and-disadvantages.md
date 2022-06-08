@@ -28,7 +28,7 @@ In microservices, if one service fails, it only affects one or few flows of the 
 
 In a monolithic system, if one small part of the system got performance issues, we need to scale the whole system. It takes upgrading resources for the part that doesn't get performance issues.
 
-In Microservices, we only scale what needs to scale. It keeps systems smaller, with less powerful hardware but the same performance.
+In microservices, we only scale what needs to scale. It keeps systems smaller, with less powerful hardware but the same performance.
 
 ## Deployment
 
