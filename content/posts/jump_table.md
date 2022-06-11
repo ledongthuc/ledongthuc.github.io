@@ -35,8 +35,8 @@ Each switch case is defined as its memory address in the table jump.
 The selector can be calculated by data (input of switch-case) and transformed into an offset that is used at the selector in the jump table. The transform can be multiplying or shifting.
 
 ```
-selector = jump-table-address + offset
-offset = option-index * memory
+selector = start-address-of-jump-table + offset
+offset = option-index * memory-size-one-address
 option-index = transform(data)
 ```
 
