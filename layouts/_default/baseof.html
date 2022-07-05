@@ -7,7 +7,7 @@
     <title>{{ .Title }}</title>
     {{ with .Site.Params.description }}<meta name="description" content="{{ . }}">{{ end }}
     {{ with .Site.Params.author }}<meta name="author" content="{{ . }}">{{ end }}
-    <link href="https://fonts.googleapis.com/css?family=Fira+Sans|Roboto|Zilla+Slab&display=swap" rel="stylesheet"> 
+    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Ubuntu:regular,bold&subset=Latin">
     <link rel="stylesheet" href="{{ "css/style.css" | relURL }}?{{ .Site.LastChange.Unix }}">
     {{ with .OutputFormats.Get "RSS" -}}
       {{ printf `<link rel="%s" type="%s" href="%s" title="%s">` .Rel .MediaType.Type .RelPermalink $.Site.Title | safeHTML }}
