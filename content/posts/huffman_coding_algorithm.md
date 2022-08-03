@@ -15,9 +15,11 @@ tags:
 
 The Huffman coding is an algorithm that is used for lossless data compression, such as gzip or PNG image format.
 
-The Huffman coding maps and replaces symbols in original codes. The mapped codes' size is smaller than the original symbol's size. This technique provides the Huffman coding algorithm ability to compress data.
+The Huffman coding replaces symbols from original document to mapping codes. The mapping codes' can be different sizes, from 1 bit until unlimited bits.
 
-Example code mapping and reduction:
+The mapping codes' size is smaller than the original symbol's size. This technique provides the Huffman coding algorithm ability to compress data, from bigger-size original symbols to smaller-size codes.
+
+Example original codes' sizes and mapping sizes:
 
 | Symbol | Code |
 |--------|------|
@@ -27,7 +29,7 @@ Example code mapping and reduction:
 | d (8 bits) | 110 (3 bit) |
 | e (8 bits) | 111 (3 bit) |
 
-The codes can be of different lengths. The more common symbols use shorter code (fewer bits) than less common symbols. It helps more common symbols reduce more bytes by their codes.
+The mapping codes can have different sizes. The more common-occurred symbols are prioritized to use smaller code (fewer bits) than less common symbols. It helps more common-occurred symbols are reduced by more bytes by their codes.
 
 | Symbol |  Total of occurs | Code |
 |-|-|-|
@@ -37,12 +39,12 @@ The codes can be of different lengths. The more common symbols use shorter code 
 | d (8 bits) | 2 times (16 bits) | 110 (3 bit x 2 = 6 bits) |
 | e (8 bits) | 1 times (8 bits) | 111 (3 bit x 1 = 3 bits) |
 
-The codes in the huffman coding algorithm is prifix code. It means no any code is a prefix of another code. It avoid to confusing between encode/decode symbols and series of codes.
+The codes in the huffman coding algorithm is prifix code. It means no any code is a prefix of another code. It avoid to confusing between encode/decode symbols and series of codes. You can check the table of "original codes' sizes and mapping sizes", no mapping codes is a prefix of other codes.
 
 ## Basic steps to compress data with the Huffman coding algorithm
 
-1. Analyse symbols and their weight (number of occurs) from original document.
-2. Build a binary tree, middle nodes contain temporary code, leaves contain symbols and their mapping codes. Keeps highest weight symbol on one side of the binary tree, lower weight symbol try to add to another side of the binary tree.
+1. Analyse symbols and their weight (number of occurs) from an original document.
+2. Build a binary tree. Middle nodes contain temporary code, leaves contain mapping between symbols and their mapping codes. Keeps highest weight symbol on one side of the binary tree, lower weight symbol try to add to another side of the binary tree.
 3. Collect leaves and their code. Replace symbols with codes.
 
 ## Example
