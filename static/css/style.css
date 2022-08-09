@@ -55,6 +55,7 @@ a {
 
 table td, table th {
   padding: 10px;
+  border: 1px black solid;
 }
 
 code {
