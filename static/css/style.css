@@ -58,6 +58,14 @@ table td, table th {
   border: 1px black solid;
 }
 
-code {
-  background-color: #DCDCDC;
+.sub-list {
+  margin: 0px 0px 10px 15px;
+}
+
+.sub-list .title {
+  font-size: 15px;
+}
+
+.sub-list .subtitle {
+  font-style: italic;
 }

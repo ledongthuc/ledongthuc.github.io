@@ -7,6 +7,17 @@
       <div class="content">
         {{ .Content }}
       </div>
+
+      {{ if .Params.subList }}
+        <div class="sub-list">
+          {{ $items := where .Site.Pages "Params.categories" .Params.subList }}
+          {{ range $items }}
+              <div class="title"><a href="{{ .Permalink }}">{{ .Title }}</a></div>
+              <div class="subtitle">{{ .Summary }}</div>
+          {{ end }}
+        </div>
+      {{ end }}
+
       {{ with .Params.tags }}
       <div class="tags">
         Tags: {{ range . }}<a class="tag" href="{{ "/tags/" | relLangURL }}{{ . | urlize }}">{{ . }}</a> | {{ end }}
