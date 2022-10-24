@@ -134,7 +134,7 @@ The `reserve()` actively expands the capacity of Vector with input argument. But
  - If we have current `capacity` is 10, size is `9`, we reserve more 5 elements => new `capacity` = 2x old `capacity` = 20.
  - If we have current `capacity` is 10, size is `9`, we reserve more 20 elements => new `capacity` = current `size` + 20 reserved elements = 29.
 
-Rust also provides a method `reserve_exact()` to force fit to what value they want to reserve.
+Rust also provides a method `reserve_exact()` to force fit to what value they want to reserve, if current `capacity` is less than current `len` + `additonal`
  - If we have current `capacity` is 10, size is `9`, we reserve_exact more 5 elements => new `capacity` = current `size` + 9 reserved elements = 14.
  - If we have current `capacity` is 10, size is `9`, we reserve_exact more 20 elements => new `capacity` = current `size` + 20 reserved elements = 29.
 
