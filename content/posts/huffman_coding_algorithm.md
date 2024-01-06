@@ -119,9 +119,9 @@ Bits view:
 |-|-|
 | x | 0 |
 | y | 10 |
-| z | 11 |
-| m | 110 |
-| n | 111 |
+| z | 110 |
+| m | 1110 |
+| n | 1111 |
 
 Replaced document (bits view):
 
