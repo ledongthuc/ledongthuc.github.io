@@ -1,0 +1,142 @@
+<!doctype html><html lang=en-us><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta http-equiv=x-ua-compatible content="IE=edge"><title>Rust - Vector capacity increment</title><meta name=description content="A space where I put my notes, researches and stuffs."><link rel=stylesheet type=text/css href="http://fonts.googleapis.com/css?family=Ubuntu:regular,bold&subset=Latin"><link rel=stylesheet href=/css/style.css?1666551600><meta property="og:title" content="Thuc notes - Rust - Vector capacity increment"><meta property="og:description" content="We talk about how Vector in Rust reallocate, and how much it will be reallocate"><meta property="og:image" content="/images/social.png"><meta property="og:image:type" content="image/png"><meta property="og:type" content="website"></head><body><div class=header>Thuc notes &copy; 2024<div class=menu>| <a href=/>home</a>
+| <a href=/series/>series</a>
+| <a href=/tags/>tags</a>
+| <a href=/about-me/>about me</a></div></div><h1>Rust - Vector Capacity Increment</h1><div class=main><div class=article>Part of series <a class=series href=/series/rust>rust</a> |
+<time>2022-10-23</time><div class=content><p>Vector is a common data structure to store list of data with growable size.</p><p>Internally, Vector store 3 basic fields:</p><ul><li>a raw pointer pointer to point to first element of the Vector store.</li><li><code>size</code> is the number of elements in Vector contains.</li><li><code>capacity</code> is the maximum of elements that Vector can add without reallocating.</li></ul><div class=highlight><div style=background-color:#fff;-moz-tab-size:2;-o-tab-size:2;tab-size:2><table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre style=background-color:#fff;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 1
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 2
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 3
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 4
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 5
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 6
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 7
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 8
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 9
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">10
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre style=background-color:#fff;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-rust data-lang=rust><span style=color:#000;font-weight:700>pub</span><span style=color:#bbb> </span><span style=color:#000;font-weight:700>struct</span> <span style=color:#0086b3>Vec</span><span style=color:#000;font-weight:700>&lt;</span>T,<span style=color:#bbb> </span>A: <span style=color:#458;font-weight:700>Allocator</span><span style=color:#bbb> </span><span style=color:#000;font-weight:700>=</span><span style=color:#bbb> </span>Global<span style=color:#000;font-weight:700>&gt;</span><span style=color:#bbb> </span>{<span style=color:#bbb>
+</span><span style=color:#bbb>    </span>buf: <span style=color:#458;font-weight:700>RawVec</span><span style=color:#000;font-weight:700>&lt;</span>T,<span style=color:#bbb> </span>A<span style=color:#000;font-weight:700>&gt;</span>,<span style=color:#bbb>
+</span><span style=color:#bbb>    </span>len: <span style=color:#458;font-weight:700>usize</span>,<span style=color:#bbb>
+</span><span style=color:#bbb></span>}<span style=color:#bbb>
+</span><span style=color:#bbb>
+</span><span style=color:#bbb></span><span style=color:#000;font-weight:700>struct</span> <span style=color:#458;font-weight:700>RawVec</span><span style=color:#000;font-weight:700>&lt;</span>T<span style=color:#000;font-weight:700>&gt;</span><span style=color:#bbb> </span>{<span style=color:#bbb>
+</span><span style=color:#bbb>    </span>ptr: <span style=color:#458;font-weight:700>NonNull</span><span style=color:#000;font-weight:700>&lt;</span>T<span style=color:#000;font-weight:700>&gt;</span>,<span style=color:#bbb>
+</span><span style=color:#bbb>    </span>cap: <span style=color:#458;font-weight:700>usize</span>,<span style=color:#bbb>
+</span><span style=color:#bbb>    </span>...<span style=color:#bbb>
+</span><span style=color:#bbb></span>}<span style=color:#bbb>
+</span></code></pre></td></tr></table></div></div><p>Same with other languages, Rust use <code>size</code>, <code>capacity</code> and pointer to heap space to support growable size feature.</p><ul><li>If we push an element to Vector that their <code>size</code> is less than <code>capacity</code>, new element will be follow last element, <code>size</code> will be increase as counter and no allocating occurs.</li><li>If we push an element to Vector that their <code>size</code> is equal to <code>capacity</code>, the Vector doesn&rsquo;t have more space to add. It reallocates elements in bigger capacity before add new element.</li></ul><pre><code>                                    ┌─────┐                                                       
+┌────────────┐                      │     │                                                       
+│    Ptr     │─────────────────────▶│     │                                                       
+├────────────┤                      ├─────┤                                                       
+│  Size: 4   │                      │     │                                                       
+├────────────┤                      │     │                                                       
+│Capacity: 5 │                      ├─────┤                                                       
+└────────────┘                      │     │                                                       
+                                    │     │                                                       
+                                    ├─────┤                                                       
+                                    │     │                                                       
+                                    │     │                                                       
+                                    ├─────┤                                                       
+                                                                                                  
+                                    │     │                                                       
+                                                                                                  
+                                    └ ─ ─ ┘                                                       
+                                                                                                  
+                                                                                                  
+                                                                                                  
+                                                                                       Deallocate 
+                                    ┌─────┐         ┌────────────┐                      ┌ ─ ─ ┐   
+┌────────────┐                      │     │         │    Ptr     │───┐  Allocate                  
+│    Ptr     │─────────────────────▶│     │         ├────────────┤   │  new space       │     │   
+├────────────┤                      ├─────┤         │  Size: 4   │   │   ┌─────┐                  
+│  Size: 5   │                      │     │         ├────────────┤   │   │     │        │     │   
+├────────────┤                      │     │         │Capacity: 10│   └──▶│     │                  
+│Capacity: 5 │                      ├─────┤         └────────────┘       ├─────┤        │     │   
+└────────────┘                      │     │                              │     │                  
+                                    │     │                              │     │        │     │   
+                                    ├─────┤                              ├─────┤                  
+                                    │     │                              │     │        │     │   
+                                    │     │                              │     │                  
+                                    ├─────┤                              ├─────┤        │     │   
+                                    │     │                              │     │                  
+                                    │     │                              │     │        │     │   
+                                    └─────┘                              ├─────┤         ─ ─ ─    
+                                                                         │     │                  
+                                                                         │     │                  
+                                                                         ├─────┤                  
+                                                                                                  
+                                                                         │     │                  
+                                                                                                  
+                                                                         │     │                  
+                                                                                                  
+                                                                         │     │                  
+                                                                                                  
+                                                                         │     │                  
+                                                                                                  
+                                                                         │     │                  
+                                                                                                  
+                                                                         │     │                  
+                                                                          ─ ─ ─                   
+</code></pre><div class=highlight><div style=background-color:#fff;-moz-tab-size:2;-o-tab-size:2;tab-size:2><table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre style=background-color:#fff;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 1
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 2
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 3
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 4
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 5
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 6
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 7
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 8
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 9
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">10
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre style=background-color:#fff;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-rust data-lang=rust><span style=color:#000;font-weight:700>pub</span><span style=color:#bbb> </span><span style=color:#000;font-weight:700>fn</span> <span style=color:#900;font-weight:700>push</span>(<span style=color:#000;font-weight:700>&amp;</span><span style=color:#000;font-weight:700>mut</span><span style=color:#bbb> </span><span style=color:#999>self</span>,<span style=color:#bbb> </span>value: <span style=color:#458;font-weight:700>T</span>)<span style=color:#bbb> </span>{<span style=color:#bbb>
+</span><span style=color:#bbb>    </span><span style=color:#998;font-style:italic>// Check and reallocate if Vector doesn&#39;t have enough capacity for new element
+</span><span style=color:#998;font-style:italic></span><span style=color:#bbb>    </span><span style=color:#000;font-weight:700>if</span><span style=color:#bbb> </span><span style=color:#999>self</span>.len<span style=color:#bbb> </span><span style=color:#000;font-weight:700>==</span><span style=color:#bbb> </span><span style=color:#999>self</span>.buf.capacity()<span style=color:#bbb> </span>{<span style=color:#bbb>
+</span><span style=color:#bbb>        </span><span style=color:#999>self</span>.buf.reserve_for_push(<span style=color:#999>self</span>.len);<span style=color:#bbb>
+</span><span style=color:#bbb>    </span>}<span style=color:#bbb>
+</span><span style=color:#bbb>
+</span><span style=color:#bbb>    </span><span style=color:#998;font-style:italic>// Add new element to Vector
+</span><span style=color:#998;font-style:italic></span><span style=color:#bbb>    </span>...<span style=color:#bbb>
+</span><span style=color:#bbb>    </span>...<span style=color:#bbb>
+</span><span style=color:#bbb></span>}<span style=color:#bbb>
+</span></code></pre></td></tr></table></div></div><p>During pushing to a Vector that its <code>size</code> reached to limit of <code>capacity</code>, new space with new capacity is allocated = 2x old capacity = 2x current size.</p><p>Minimum of capacity is defined as following table:</p><table><thead><tr><th>Element&rsquo;s size</th><th>Minimum capacity</th></tr></thead><tbody><tr><td>1kb</td><td>8</td></tr><tr><td>&lt;= 1024kb</td><td>4</td></tr><tr><td>> 1024kb</td><td>1</td></tr></tbody></table><div class=highlight><div style=background-color:#fff;-moz-tab-size:2;-o-tab-size:2;tab-size:2><table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre style=background-color:#fff;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 1
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 2
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 3
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 4
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 5
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 6
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 7
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 8
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 9
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">10
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">11
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">12
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">13
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre style=background-color:#fff;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-rust data-lang=rust><span style=color:#998;font-style:italic>// addition = len in case push()
+</span><span style=color:#998;font-style:italic></span><span style=color:#000;font-weight:700>fn</span> <span style=color:#900;font-weight:700>grow_amortized</span>(<span style=color:#000;font-weight:700>&amp;</span><span style=color:#000;font-weight:700>mut</span><span style=color:#bbb> </span><span style=color:#999>self</span>,<span style=color:#bbb> </span>len: <span style=color:#458;font-weight:700>usize</span>,<span style=color:#bbb> </span>additional: <span style=color:#458;font-weight:700>usize</span>)<span style=color:#bbb> </span>-&gt; <span style=color:#0086b3>Result</span><span style=color:#000;font-weight:700>&lt;</span>(),<span style=color:#bbb> </span>TryReserveError<span style=color:#000;font-weight:700>&gt;</span><span style=color:#bbb> </span>{<span style=color:#bbb>
+</span><span style=color:#bbb>    </span>...<span style=color:#bbb>
+</span><span style=color:#bbb>    </span><span style=color:#000;font-weight:700>let</span><span style=color:#bbb> </span>required_cap<span style=color:#bbb> </span><span style=color:#000;font-weight:700>=</span><span style=color:#bbb> </span>len.checked_add(additional).ok_or(CapacityOverflow)<span style=color:#000;font-weight:700>?</span>;<span style=color:#bbb>
+</span><span style=color:#bbb>
+</span><span style=color:#bbb>    </span><span style=color:#000;font-weight:700>let</span><span style=color:#bbb> </span>cap<span style=color:#bbb> </span><span style=color:#000;font-weight:700>=</span><span style=color:#bbb> </span>cmp::max(<span style=color:#999>self</span>.cap<span style=color:#bbb> </span><span style=color:#000;font-weight:700>*</span><span style=color:#bbb> </span><span style=color:#099>2</span>,<span style=color:#bbb> </span>required_cap);<span style=color:#bbb>
+</span><span style=color:#bbb>    </span><span style=color:#000;font-weight:700>let</span><span style=color:#bbb> </span>cap<span style=color:#bbb> </span><span style=color:#000;font-weight:700>=</span><span style=color:#bbb> </span>cmp::max(Self::MIN_NON_ZERO_CAP,<span style=color:#bbb> </span>cap);<span style=color:#bbb>
+</span><span style=color:#bbb>
+</span><span style=color:#bbb>    </span><span style=color:#000;font-weight:700>let</span><span style=color:#bbb> </span>new_layout<span style=color:#bbb> </span><span style=color:#000;font-weight:700>=</span><span style=color:#bbb> </span>Layout::array::<span style=color:#000;font-weight:700>&lt;</span>T<span style=color:#000;font-weight:700>&gt;</span>(cap);<span style=color:#bbb>
+</span><span style=color:#bbb>
+</span><span style=color:#bbb>    </span><span style=color:#998;font-style:italic>// Allocate new layout, update pointer to new heap space and update capacity
+</span><span style=color:#998;font-style:italic></span><span style=color:#bbb>    </span>...<span style=color:#bbb>
+</span><span style=color:#bbb></span>}<span style=color:#bbb>
+</span></code></pre></td></tr></table></div></div><p>The code <code>grow_amortized()</code> is used for both cases while pushing to capacity Vector, and <code>reserve(more_capacity)</code> method.</p><p>The <code>reserve()</code> actively expands the capacity of Vector with input argument. But the Vector will decide how much will be grown to avoid re-allocate frequently.</p><ul><li>If we have current <code>capacity</code> is 10, size is <code>9</code>, we reserve more 5 elements => new <code>capacity</code> = 2x old <code>capacity</code> = 20.</li><li>If we have current <code>capacity</code> is 10, size is <code>9</code>, we reserve more 20 elements => new <code>capacity</code> = current <code>size</code> + 20 reserved elements = 29.</li></ul><p>Rust also provides a method <code>reserve_exact()</code> to force fit to what value they want to reserve, if current <code>capacity</code> is less than current <code>len</code> + <code>additonal</code></p><ul><li>If we have current <code>capacity</code> is 10, size is <code>9</code>, we reserve_exact more 5 elements => new <code>capacity</code> = current <code>size</code> + 9 reserved elements = 14.</li><li>If we have current <code>capacity</code> is 10, size is <code>9</code>, we reserve_exact more 20 elements => new <code>capacity</code> = current <code>size</code> + 20 reserved elements = 29.</li></ul><div class=highlight><div style=background-color:#fff;-moz-tab-size:2;-o-tab-size:2;tab-size:2><table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre style=background-color:#fff;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">2
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">3
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">4
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">5
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">6
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">7
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">8
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">9
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre style=background-color:#fff;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-rust data-lang=rust><span style=color:#000;font-weight:700>fn</span> <span style=color:#900;font-weight:700>grow_exact</span>(<span style=color:#000;font-weight:700>&amp;</span><span style=color:#000;font-weight:700>mut</span><span style=color:#bbb> </span><span style=color:#999>self</span>,<span style=color:#bbb> </span>len: <span style=color:#458;font-weight:700>usize</span>,<span style=color:#bbb> </span>additional: <span style=color:#458;font-weight:700>usize</span>)<span style=color:#bbb> </span>-&gt; <span style=color:#0086b3>Result</span><span style=color:#000;font-weight:700>&lt;</span>(),<span style=color:#bbb> </span>TryReserveError<span style=color:#000;font-weight:700>&gt;</span><span style=color:#bbb> </span>{<span style=color:#bbb>
+</span><span style=color:#bbb>    </span>...<span style=color:#bbb>
+</span><span style=color:#bbb>
+</span><span style=color:#bbb>    </span><span style=color:#000;font-weight:700>let</span><span style=color:#bbb> </span>cap<span style=color:#bbb> </span><span style=color:#000;font-weight:700>=</span><span style=color:#bbb> </span>len.checked_add(additional).ok_or(CapacityOverflow)<span style=color:#000;font-weight:700>?</span>;<span style=color:#bbb>
+</span><span style=color:#bbb>    </span><span style=color:#000;font-weight:700>let</span><span style=color:#bbb> </span>new_layout<span style=color:#bbb> </span><span style=color:#000;font-weight:700>=</span><span style=color:#bbb> </span>Layout::array::<span style=color:#000;font-weight:700>&lt;</span>T<span style=color:#000;font-weight:700>&gt;</span>(cap);<span style=color:#bbb>
+</span><span style=color:#bbb>
+</span><span style=color:#bbb>    </span><span style=color:#998;font-style:italic>// Allocate new layout, update pointer to new heap space and update capacity
+</span><span style=color:#998;font-style:italic></span><span style=color:#bbb>    </span>...<span style=color:#bbb>
+</span><span style=color:#bbb></span>}<span style=color:#bbb>
+</span></code></pre></td></tr></table></div></div></div><div class=tags>Tags: <a class=tag href=/tags/rust>rust</a> |</div></div></div></body></html>
