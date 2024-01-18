@@ -19,8 +19,9 @@ jobs:
       run: hugo --gc --minify --cleanDestinationDir
 
     - name: Deploy
-      uses: peaceiris/actions-gh-pages@v2.4.0
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        github_token: ${{ secrets.GH_TOKEN }}
       env:
-        ACTIONS_DEPLOY_KEY: ${{ secrets.ACTIONS_DEPLOY_KEY }}
         PUBLISH_BRANCH: master
         PUBLISH_DIR: ./public
