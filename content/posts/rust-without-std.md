@@ -9,6 +9,7 @@ tags:
 - rust
 ---
 
+
 ## #![no_std]
 It is an attribute to ask Rust compiler don’t link the standard library into output result.The standard library is OS dependent library, so it’s not fit during kernel developing
 
