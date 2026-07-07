@@ -1,6 +1,7 @@
 ---
 title: "Rust - Vector capacity increment"
 series: "rust"
+categories: "notes"
 summary: "We talk about how Vector in Rust reallocate, and how much it will be reallocate"
 date: 2022-10-23T20:00:00+01:00
 draft: false
