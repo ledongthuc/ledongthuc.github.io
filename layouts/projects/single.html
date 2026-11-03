@@ -1,0 +1,14 @@
+{{ define "main" }}
+  <h1>{{ .Title | title }}</h1>
+  <div class="main">
+    {{ range site.Data.projects }}
+      <div class="article">
+        <div class="title">{{ .title }}</div>
+        <div class="subtitle">{{ .description }}</div>
+        <div class="source">Link:
+          {{ range $i, $url := .links }}{{ if $i }} | {{ end }}<a href="{{ $url }}" target="_blank">{{ $url }}</a>{{ end }}
+        </div>
+      </div>
+    {{ end }}
+  </div>
+{{ end }}

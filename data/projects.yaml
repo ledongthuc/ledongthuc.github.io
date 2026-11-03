@@ -1,0 +1,30 @@
+# Add one entry per project. Fields: title, description, links (list of URLs).
+- title: " - ThuyDienVN.com"
+  description: "A news website that automatically collects news related to Sweden and relevant to Vietnamese people living in Sweden. The news collection process runs automatically every two days."
+  links:
+    - "http://thuydienvn.com"
+- title: " - Vocab Lock Widget / Dagens Svenska"
+  description: "An iOS application that displays and rotates vocabulary words on the mobile lock screen. Supports two main versions, English and Swedish. New vocabulary words are updated annually."
+  links:
+    - "https://vocablockwidget.thuc.space/"
+    - "https://dagenssvenska.thuc.space/"
+- title: " - FIX codec in Rust"
+  description: "A Rust library that implements an encoder and decoder for the FIX (Financial Information Exchange) protocol. Focuses exclusively on encoding and decoding, without implementing the session or application layers of the protocol. Supports FIX versions 4.2, 4.4, and 5.0."
+  links:
+    - "https://github.com/ledongthuc/fix-codec-rs"
+- title: " - PDF golang lib"
+  description: "A Go library for reading and extracting content from PDF files. Forked from rsc/pdf and actively maintained since 2017. The library is widely used by AI and LLM libraries to read PDF files."
+  links:
+    - "https://github.com/ledongthuc/pdf"
+- title: " - AWS Secrets Manager UI"
+  description: "A web-based user interface for managing AWS Secrets Manager."
+  links:
+    - "https://github.com/ledongthuc/awssecretsmanagerui"
+- title: " - Goterators"
+  description: "A Go utility library that provides aggregation and transformation functions for lists. Supports common operations such as for-each, find, reduce, every, some, group, and more."
+  links:
+    - "https://github.com/ledongthuc/goterators"
+- title: " - Custom Software Serial"
+  description: "An alternative to Arduino's SoftwareSerial library. The CustomSoftwareSerial library allows users to configure and customize parity bits, stop bits, and the number of data bits."
+  links:
+    - "https://github.com/ledongthuc/CustomSoftwareSerial"

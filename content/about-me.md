@@ -1,7 +1,7 @@
 +++
 title = "about me"
 menu = "main"
-weight = 5
+weight = 6
 +++
 
 A software engineer, a husband and a father.
